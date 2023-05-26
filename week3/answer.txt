@@ -1,0 +1,18 @@
+//This is a lab of week3.
+//This is an answer of the lab3
+//It solves a problem that indentifis three sorts.(Bubble sort,Selection sort,Merge sort)
+
+sort1 uses: Bubble sort
+reversed10000    0m0.290s
+sorted50000      0m0.578s
+How do you know?:For the sorted data,the bubble sort is the fastest.
+
+sort2 uses: Merge sort
+reversed10000    0m0.094s
+sorted50000      0m0.7448s
+How do you know?: For the reversed data,the merge sort is the fastest.
+
+sort3 uses: Selection sort
+reversed10000    0m0.197s
+sorted50000      0m3.337s
+How do you know?: When two sorts are sured,the sort3 is only called selection sort
