@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    BYTE *buffer = malloc(sizeof(BYTE)*BLOCK_SIZE);
+    BYTE *buffer = malloc(sizeof(BYTE) * BLOCK_SIZE);
     int index = 0;//文件序号
     char newfile[8];//文件名
     FILE *outptr = NULL;//文件写入指针
@@ -29,7 +29,8 @@ int main(int argc, char *argv[])
     while (fread(buffer, 1, BLOCK_SIZE, file) == BLOCK_SIZE)
     {
         //判断是否为照片头
-        if (buffer[0] == 255 && buffer[1] == 216 && buffer[2] == 255 && buffer[3] > 223 && buffer[3] < 240)//0xff=255,0xd8=216,0xff=255,0xe?=1110????
+        if (buffer[0] == 255 && buffer[1] == 216 && buffer[2] == 255 && buffer[3] > 223
+            && buffer[3] < 240)//0xff=255,0xd8=216,0xff=255,0xe?=1110????
         {
             //保存文件
             if (index != 0)//第一个照片创建前无需保存
@@ -47,13 +48,13 @@ int main(int argc, char *argv[])
             index++;
         }
         //寻找到第一个照片头之前无需写新文件
-        if(index != 0)
+        if (index != 0)
         {
             //将buffer指向的512B大小的块写入创建的文件中
             fwrite(buffer, 1, BLOCK_SIZE, outptr);
         }
     }
-  
+
     // 释放buffer
     free(buffer);
     // close outfile
